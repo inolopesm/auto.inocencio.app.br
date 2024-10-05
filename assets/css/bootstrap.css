@@ -22,3 +22,9 @@
   --bs-btn-disabled-bg: #0fbf4d;
   --bs-btn-disabled-border-color: #0fbf4d;
 }
+
+@media (min-width: 768px) {
+  .grid-cols-md-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

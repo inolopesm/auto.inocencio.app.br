@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Co Headline';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/co-headline/CoHeadline_Rg.ttf');
+}
+
+.font-co-headline {
+  font-family: 'Co Headline', sans-serif;
+}

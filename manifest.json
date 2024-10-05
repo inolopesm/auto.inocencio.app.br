@@ -1,0 +1,14 @@
+{
+  "short_name": "inoauto",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0fbf4d",
+  "theme_color": "#0fbf4d",
+  "icons": [
+    {
+      "src": "/images/icons-vector.svg",
+      "type": "image/x-icon",
+      "sizes": "16x16"
+    }
+  ]
+}
