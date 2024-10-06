@@ -23,6 +23,12 @@
   --bs-btn-disabled-border-color: #0fbf4d;
 }
 
+.btn-link {
+  --bs-btn-color: #0fbf4d;
+  --bs-btn-hover-color: #0aa944;
+  --bs-btn-active-color: #08903b;
+}
+
 @media (min-width: 768px) {
   .grid-cols-md-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
