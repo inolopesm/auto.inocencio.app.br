@@ -1,23 +1,30 @@
+import {
+  ChartLineUp as ChartLineUpIcon,
+  Package as PackageIcon,
+  Plug as PlugIcon,
+  WhatsappLogo as WhatsappLogoIcon,
+} from "@phosphor-icons/react/dist/ssr";
+
 import { createPortal } from "react-dom";
+import { Link } from "react-router-dom";
+import { Button } from "../components/Button";
 
 export function Component() {
   return (
     <>
       {createPortal(
         <>
-          <meta name="description" content="Simplifique a gestão da sua loja de automóveis. Gerencie a entrada e saída de veículos e integre suas operações com plataformas como OLX e Instagram para maximizar suas vendas." />
-          <meta name="keywords" content="gestão de veículos, gerenciamento de automóveis, integração com OLX, integração com Instagram, loja de automóveis, inoauto, plataforma para revenda de carros, software para lojas de veículos, controle de estoque automotivo, anúncios de carros, gerenciar anúncios de carros, vender carros online, gestão de entrada e saída de veículos" />
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:title" content="inoauto" />
-          <meta name="twitter:description" content="Simplifique a entrada e saída de veículos na sua loja e aumente suas vendas com integração a OLX e Instagram." />
-          <meta property="og:title" content="inoauto" />
-          <meta property="og:description" content="Facilite a gestão da sua loja de automóveis e integre suas operações a plataformas de anúncios como OLX e Instagram." />
-          <meta property="og:type" content="website" />
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-          <link rel="stylesheet" href="/assets/css/bootstrap.css" />
-          <link rel="stylesheet" href="/assets/css/co-headline.css" />
-          <link rel="manifest" href="/manifest.json" />
+          {/* eslint-disable prettier/prettier */}
+          <meta content="Simplifique a gestão da sua loja de automóveis. Gerencie a entrada e saída de veículos e integre suas operações com plataformas como OLX e Instagram para maximizar suas vendas." name="description" />
+          <meta content="gestão de veículos, gerenciamento de automóveis, integração com OLX, integração com Instagram, loja de automóveis, inoauto, plataforma para revenda de carros, software para lojas de veículos, controle de estoque automotivo, anúncios de carros, gerenciar anúncios de carros, vender carros online, gestão de entrada e saída de veículos" name="keywords" />
+          <meta content="summary" name="twitter:card" />
+          <meta content="inoauto" name="twitter:title" />
+          <meta content="Simplifique a entrada e saída de veículos na sua loja e aumente suas vendas com integração a OLX e Instagram." name="twitter:description" />
+          <meta content="inoauto" property="og:title" />
+          <meta content="Facilite a gestão da sua loja de automóveis e integre suas operações a plataformas de anúncios como OLX e Instagram." property="og:description" />
+          <meta content="website" property="og:type" />
+          <link href="/manifest.json" rel="manifest" />
+          {/* eslint-enable prettier/prettier */}
           <script type="application/ld+json">
             {`
               {
@@ -32,123 +39,104 @@ export function Component() {
         </>,
         window.document.head,
       )}
-      <div className="min-vh-100 d-flex flex-column">
-        <header className="navbar">
-          <div className="container">
-            <a className="navbar-brand font-co-headline" href="/">
-              <span className="text-primary">auto</span>ino
-            </a>
-            <a
-              className="btn btn-link"
-              href="https://admin.auto.inocencio.app.br"
-              target="_blank"
-            >
-              Admin
-            </a>
-          </div>
+      <div className="flex min-h-dvh flex-col bg-gradient-to-tr from-primary/10 to-transparent">
+        <header className="mx-auto flex h-14 w-full max-w-7xl items-center px-4 md:px-6">
+          <Link className="font-serif text-2xl" to="/">
+            <span className="text-primary">auto</span>ino
+          </Link>
+          <Button className="ml-auto" variant="ghost" asChild>
+            <Link to="/admin">Admin</Link>
+          </Button>
         </header>
-        <main className="flex-grow-1">
-          <section className="bg-primary bg-opacity-10 py-5">
-            <div className="container">
-              <div className="row">
-                <div className="col d-flex flex-column justify-content-center py-5">
-                  <h1>Sistema para lojas de veículos</h1>
-                  <p>
-                    Acompanhe facilmente todo o fluxo de veículos e integre suas
-                    operações com plataformas como OLX e Instagram. Tudo em um
-                    único lugar.
-                  </p>
-                  <div>
+        <main className="grow">
+          <section className="px-4 md:px-6">
+            <div className="mx-auto flex max-w-7xl py-20">
+              <div className="text-center md:flex md:w-1/2 md:flex-col md:justify-center md:text-left">
+                <h1 className="font-serif text-4xl">
+                  Sistema para lojas de veículos
+                </h1>
+                <p className="mt-2 max-w-2xl">
+                  Acompanhe facilmente todo o fluxo de veículos e integre suas
+                  operações com plataformas como OLX e Instagram. Tudo em um
+                  único lugar.
+                </p>
+                <div className="mt-6">
+                  <Button asChild>
                     <a
-                      className="btn btn-primary"
                       href="https://wa.me/5583991957887?text=Vim%20do%20site%20auto.inocencio.app.br"
-                      target="_blank"
                       rel="noopener noreferrer"
+                      target="_blank"
                     >
-                      <i className="bi-whatsapp d-inline-block me-1" />
+                      <WhatsappLogoIcon className="size-5" />
                       Agendar demonstração gratuita
                     </a>
-                  </div>
+                  </Button>
                 </div>
-                <div className="col d-none d-md-flex justify-content-end">
-                  <img
-                    className="img-fluid border border-primary rounded"
-                    src="/assets/images/swansway-motor-group-Tzlck2eqdBA-unsplash-small.webp"
-                    alt="uma pessoa filmando carros com seu celular"
-                    loading="lazy"
-                    style={{ maxHeight: "480px" }}
-                  />
+              </div>
+              <div className="hidden h-[30rem] overflow-x-hidden md:flex md:w-1/2 md:justify-end">
+                <img
+                  alt="um homem andando e usando um telefone na frente de alguns carros"
+                  className="rounded opacity-75 duration-1000 animate-in slide-in-from-right-full"
+                  loading="lazy"
+                  src="/assets/images/henry-co-fMBRKrkp37k-unsplash.webp"
+                />
+              </div>
+            </div>
+          </section>
+          <section className="mx-auto w-full max-w-7xl px-4 py-20 md:px-6">
+            <h2 className="font-serif text-2xl">Principais Funcionalidades</h2>
+            <div className="mt-6 grid gap-6 md:grid-cols-3">
+              <div className="rounded border border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-900">
+                <div className="flex aspect-[2/1] items-center justify-center rounded-t bg-gray-200 dark:bg-gray-800">
+                  <PackageIcon className="size-20 text-primary" />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-medium">
+                    Gerenciamento Eficiente de Veículos
+                  </h3>
+                  <p className="mt-1 text-gray-600 dark:text-gray-400">
+                    Tenha controle total sobre a entrada e saída de veículos em
+                    sua loja, desde a chegada até a venda.
+                  </p>
+                </div>
+              </div>
+              <div className="rounded border border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-900">
+                <div className="flex aspect-[2/1] items-center justify-center rounded-t bg-gray-200 dark:bg-gray-800">
+                  <PlugIcon className="size-20 text-primary" />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-medium">Integrações Poderosas</h3>
+                  <p className="mt-1 text-gray-600 dark:text-gray-400">
+                    Conecte sua loja diretamente a plataformas como OLX e
+                    Instagram para divulgar seus veículos automaticamente e
+                    alcançar mais clientes.
+                  </p>
+                </div>
+              </div>
+              <div className="rounded border border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-900">
+                <div className="flex aspect-[2/1] items-center justify-center rounded-t bg-gray-200 dark:bg-gray-800">
+                  <ChartLineUpIcon className="size-20 text-primary" />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-medium">Visão Geral em Tempo Real</h3>
+                  <p className="mt-1 text-gray-600 dark:text-gray-400">
+                    Veja todos os veículos, históricos de movimentação e status
+                    de anúncios em um painel simples e fácil de usar.
+                  </p>
                 </div>
               </div>
             </div>
           </section>
-          <section className="py-5">
-            <div className="container">
-              <h2 className="mb-4">Principais Funcionalidades</h2>
-              <div className="d-grid gap-3 grid-cols-md-3">
-                <div className="card">
-                  <div
-                    className="card-img-top bg-secondary bg-opacity-10 d-flex justify-content-center align-items-center"
-                    style={{ aspectRatio: "2 / 1" }}
-                  >
-                    <i className="bi-box-seam text-primary" style={{ fontSize: "5rem" }} />
-                  </div>
-                  <div className="card-body">
-                    <h3 className="h5 card-title">
-                      Gerenciamento Eficiente de Veículos
-                    </h3>
-                    <p className="card-text">
-                      Tenha controle total sobre a entrada e saída de veículos
-                      em sua loja, desde a chegada até a venda.
-                    </p>
-                  </div>
-                </div>
-                <div className="card">
-                  <div
-                    className="card-img-top bg-secondary bg-opacity-10 d-flex justify-content-center align-items-center"
-                    style={{ aspectRatio: "2 / 1" }}
-                  >
-                    <i className="bi-plug text-primary" style={{ fontSize: "5rem" }} />
-                  </div>
-                  <div className="card-body">
-                    <h3 className="h5 card-title">Integrações Poderosas</h3>
-                    <p className="card-text">
-                      Conecte sua loja diretamente a plataformas como OLX e
-                      Instagram para divulgar seus veículos automaticamente e
-                      alcançar mais clientes.
-                    </p>
-                  </div>
-                </div>
-                <div className="card">
-                  <div
-                    className="card-img-top bg-secondary bg-opacity-10 d-flex justify-content-center align-items-center"
-                    style={{ aspectRatio: "2 / 1" }}
-                  >
-                    <i className="bi-graph-up-arrow text-primary" style={{ fontSize: "5rem" }} />
-                  </div>
-                  <div className="card-body">
-                    <h3 className="h5 card-title">Visão Geral em Tempo Real</h3>
-                    <p className="card-text">
-                      Veja todos os veículos, históricos de movimentação e
-                      status de anúncios em um painel simples e fácil de usar.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section className="py-5 bg-primary bg-opacity-10">
-            <div className="container">
-              <h2 className="mb-4">Veículos Anunciados</h2>
-              <p>Nenhum anúncio encontrado</p>
+          <section className="px-4 py-20 md:px-6">
+            <div className="mx-auto max-w-7xl">
+              <h2 className="font-serif text-2xl">Veículos Anunciados</h2>
+              <p className="mt-6 text-gray-400">Nenhum anúncio encontrado</p>
             </div>
           </section>
         </main>
-        <footer className="py-3">
-          <p className="container mb-0">
-            Este site é mantido e operado por MATHEUS INOCENCIO LOPES -
-            55.740.093/0001-82
-          </p>
+        <footer className="mx-auto flex h-16 items-center px-4 text-center text-sm text-gray-600 md:px-6 dark:text-gray-400">
+          Este site é mantido e operado por MATHEUS INOCENCIO LOPES -
+          55.740.093/0001-82
         </footer>
       </div>
     </>
