@@ -2,17 +2,17 @@ import "@fontsource/poppins/latin-400.css";
 import "@fontsource/poppins/latin-500.css";
 import "@fontsource/poppins/latin-600.css";
 import "@fontsource/poppins/latin-700.css";
-
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-
 import {
+  RouterProvider,
   createBrowserRouter,
   redirect,
-  RouterProvider,
 } from "react-router-dom";
+import { Toaster } from "sonner";
 
 import "./tailwind.css";
+import { AuthProvider } from "./contexts/auth-context";
 
 const router = createBrowserRouter([
   {
@@ -22,14 +22,18 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     lazy: () => import("./pages/admin-page"),
-    loader: async () =>
+    loader: () =>
       window.document.cookie.indexOf("accessToken=") === -1
-        ? redirect("/admin/login")
+        ? redirect("/admin/entrar")
         : null,
   },
   {
-    path: "/admin/login",
-    lazy: () => import("./pages/admin-login-page"),
+    path: "/admin/entrar",
+    loader: () =>
+      window.document.cookie.indexOf("accessToken=") === -1
+        ? null
+        : redirect("/admin"),
+    lazy: () => import("./pages/admin-entrar-page"),
   },
 ]);
 
@@ -41,6 +45,9 @@ if (container === null) {
 
 createRoot(container).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+    <Toaster richColors />
   </StrictMode>,
 );
