@@ -2,7 +2,12 @@ import animate from "tailwindcss-animate";
 
 /** @type {import("tailwindcss").Config} */
 const tailwindcssConfig = {
-  content: ["index.html", "src/components/**/*.tsx", "src/pages/**/*.tsx"],
+  content: [
+    "index.html",
+    "src/components/**/*.tsx",
+    "src/layouts/**/*.tsx",
+    "src/pages/**/*.tsx",
+  ],
   plugins: [animate],
   theme: {
     extend: {
