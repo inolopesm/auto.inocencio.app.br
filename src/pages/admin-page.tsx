@@ -1,3 +1,4 @@
+import { Cake as CakeIcon } from "@phosphor-icons/react/dist/ssr";
 import { useEffect } from "react";
 import { api } from "../lib/api";
 
@@ -11,11 +12,20 @@ export function Component() {
   return (
     <div>
       <div>Dashboard</div>
-      <div>Aniversariantes do mês: -1 do total de -1 clientes cadastrados</div>
-      <div>Veículos em estoque: -1 de -1 próprios e -1 consignados</div>
-      <div>Média de dias do estoque: -1</div>
-      <div>Vendas mês atual: -1 comparado com -1 do mês anterior</div>
-      <div>Avaliações pendentes: -1 (Avaliações não concluídas)</div>
+      <div className="grid grid-cols-5">
+        <div className="grid gap-3 rounded-md border border-gray-300 p-3 text-center">
+          <div className="text-sm font-medium text-gray-600">
+            Aniversariantes do mês
+          </div>
+          <CakeIcon className="mx-auto size-10 text-primary" />
+          <div className="text-4xl font-semibold">0</div>
+          <div className="text-xs text-gray-600">Clientes cadastrados: 0</div>
+        </div>
+        <div>Veículos em estoque: -1 de -1 próprios e -1 consignados</div>
+        <div>Média de dias do estoque: -1</div>
+        <div>Vendas mês atual: -1 comparado com -1 do mês anterior</div>
+        <div>Avaliações pendentes: -1 (Avaliações não concluídas)</div>
+      </div>
       <div>
         Cadastros recentes (veiculo, placa, ano): V1 / P1 / A1, V2 / P2 / A2...
         V5 / P5 / A5

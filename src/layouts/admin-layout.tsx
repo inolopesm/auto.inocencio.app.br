@@ -12,7 +12,7 @@ export function Component() {
           <div className="">{accessToken.decoded.sub}</div>
         </div>
       </div>
-      <div className="grow px-4 py-10 md:px-6 md:py-20">
+      <div className="grow px-4 py-10 md:px-6">
         <Outlet />
       </div>
       <div className="mx-auto max-w-7xl px-4 py-3 text-center text-sm text-gray-600 md:px-6 dark:text-gray-400">
