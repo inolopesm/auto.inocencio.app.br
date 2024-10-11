@@ -1,8 +1,16 @@
+import { jwtDecode } from "jwt-decode";
 import { createContext, useContext, useMemo, useState } from "react";
-import { getCookie } from "../utils/cookie";
+import { z } from "zod";
+import { getCookie, removeCookie, setCookie } from "../utils/cookie";
+
+const AccessTokenSchema = z.object({
+  sub: z.string(),
+});
+
+type AccessTokenDTO = z.infer<typeof AccessTokenSchema>;
 
 interface AuthContextValue {
-  accessToken: string;
+  accessToken: { encoded: string; decoded: AccessTokenDTO };
   login: (accessToken: string) => void;
   logout: () => void;
 }
@@ -10,23 +18,26 @@ interface AuthContextValue {
 export const AuthContext = createContext(null as AuthContextValue | null);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [accessToken, setAccessToken] = useState(
-    () => getCookie("accessToken") ?? "",
-  );
+  const [encoded, setEncoded] = useState(() => getCookie("accessToken") ?? "");
 
   const value = useMemo<AuthContextValue>(
     () => ({
-      accessToken,
-      login: (token) => {
-        window.document.cookie = `accessToken=${token};samesite=strict;path=/;${import.meta.env.PROD ? ";secure" : ""}`;
-        setAccessToken(token);
+      accessToken: {
+        encoded: encoded,
+        decoded: encoded
+          ? AccessTokenSchema.parse(jwtDecode(encoded))
+          : { sub: "" },
+      },
+      login: (accessToken) => {
+        setCookie("accessToken", accessToken);
+        setEncoded(accessToken);
       },
       logout: () => {
-        window.document.cookie = `accessToken=;max-age=0;samesite=strict;path=/;${import.meta.env.PROD ? ";secure" : ""}`;
-        setAccessToken("");
+        removeCookie("accessToken");
+        setEncoded("");
       },
     }),
-    [accessToken],
+    [encoded],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

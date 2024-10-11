@@ -1,5 +1,13 @@
 const options = `samesite=strict;path=/;${import.meta.env.PROD ? ";secure" : ""}`;
 
+export function setCookie(key: string, value: string) {
+  window.document.cookie = `${key}=${value};${options}`;
+}
+
+export function removeCookie(key: string) {
+  window.document.cookie = `${key}=;max-age=0;${options}`;
+}
+
 export function getCookie(key: string) {
   const cookies = new Map<string, string>();
   const entries = window.document.cookie.split("; ");
@@ -10,12 +18,4 @@ export function getCookie(key: string) {
   }
 
   return cookies.get(key);
-}
-
-export function setCookie(key: string, value: string) {
-  window.document.cookie = `${key}=${value};${options}`;
-}
-
-export function removeCookie(key: string) {
-  window.document.cookie = `${key}=;max-age=0;${options}`;
 }

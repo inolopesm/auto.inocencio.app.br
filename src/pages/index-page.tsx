@@ -83,7 +83,7 @@ export function Component() {
               </div>
             </div>
           </section>
-          <section className="mx-auto w-full max-w-7xl px-4 py-20 md:px-6">
+          <section className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-20">
             <h2 className="font-serif text-2xl">Principais Funcionalidades</h2>
             <div className="mt-6 grid gap-6 md:grid-cols-3">
               <div className="rounded border border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-900">
@@ -127,14 +127,14 @@ export function Component() {
               </div>
             </div>
           </section>
-          <section className="px-4 py-20 md:px-6">
+          <section className="px-4 py-10 md:px-6 md:py-20">
             <div className="mx-auto max-w-7xl">
               <h2 className="font-serif text-2xl">Veículos Anunciados</h2>
-              <p className="mt-6 text-gray-400">Nenhum anúncio encontrado</p>
+              <p className="mt-6 text-gray-700">Nenhum anúncio encontrado</p>
             </div>
           </section>
         </main>
-        <footer className="mx-auto flex h-16 items-center px-4 text-center text-sm text-gray-600 md:px-6 dark:text-gray-400">
+        <footer className="mx-auto flex h-16 items-center px-4 text-center text-sm text-gray-700 md:px-6 dark:text-gray-400">
           Este site é mantido e operado por MATHEUS INOCENCIO LOPES -
           55.740.093/0001-82
         </footer>

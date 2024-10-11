@@ -20,20 +20,26 @@ const router = createBrowserRouter([
     lazy: () => import("./pages/index-page"),
   },
   {
-    path: "/admin",
-    lazy: () => import("./pages/admin-page"),
-    loader: () =>
-      window.document.cookie.indexOf("accessToken=") === -1
-        ? redirect("/admin/entrar")
-        : null,
-  },
-  {
     path: "/admin/entrar",
     loader: () =>
       window.document.cookie.indexOf("accessToken=") === -1
         ? null
         : redirect("/admin"),
     lazy: () => import("./pages/admin-entrar-page"),
+  },
+  {
+    path: "/admin",
+    lazy: () => import("./layouts/admin-layout"),
+    loader: () =>
+      window.document.cookie.indexOf("accessToken=") === -1
+        ? redirect("/admin/entrar")
+        : null,
+    children: [
+      {
+        index: true,
+        lazy: () => import("./pages/admin-page"),
+      },
+    ],
   },
 ]);
 

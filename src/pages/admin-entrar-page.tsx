@@ -76,9 +76,9 @@ export function Component() {
   };
 
   return (
-    <div className="flex min-h-dvh items-center justify-center">
+    <div className="flex min-h-dvh items-center justify-center bg-gray-100">
       <form
-        className="w-full max-w-xs rounded border p-4 dark:border-gray-700 dark:bg-gray-800"
+        className="w-full max-w-xs rounded-md border bg-white p-4 dark:border-gray-700 dark:bg-gray-800"
         onSubmit={handleSubmit}
       >
         <div className="mb-4 font-serif text-2xl">Acessar Admin</div>
